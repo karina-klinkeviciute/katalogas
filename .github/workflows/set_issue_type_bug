@@ -1,0 +1,38 @@
+name: Set Project Type = Bug
+
+on:
+  issues:
+    types: [opened]
+
+# reikės rašymo teisių projektams
+permissions:
+  contents: read
+  issues: write
+  projects: write
+
+jobs:
+  set-type:
+    # vykdom tik kai yra (ar ką tik pridėtas) 'bug' label
+    if: >
+      contains(github.event.issue.labels.*.name, 'bug') ||
+      (github.event.action == 'labeled' && github.event.label.name == 'bug')
+    runs-on: ubuntu-latest
+    env:
+      OWNER: karina-klinkeviciute        # ← pakeisk savo org/user testuojant forke
+      PROJECT_NUMBER: "16"         # ← projekto numeris iš URL
+      GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+    steps:
+      - name: Ensure item is in the project (idempotent)
+        run: |
+          gh project item-add \
+            --owner "$OWNER" \
+            --number "$PROJECT_NUMBER" \
+            --content-id "${{ github.event.issue.node_id }}" || true
+
+      - name: Set field Type = Bug
+        run: |
+          gh project item-edit \
+            --owner "$OWNER" \
+            --number "$PROJECT_NUMBER" \
+            --content-id "${{ github.event.issue.node_id }}" \
+            --field "Type" --option "Bug"
