@@ -2,7 +2,7 @@ name: "VSSA testavimas"
 description: "VSSA naudotojų priėmimo testavimas"
 title: "<scenarijaus žingsnio nr.> - <Scenarijaus pavadinimas>"
 labels: ["bug", "ui:web"]
-projects: ["atviriduomenys/15"]   # Projects v2: org + projekto numeris iš URL
+projects: ["karina-klinkeviciute/16"]   # Projects v2: org + projekto numeris iš URL
 body:
   - type: textarea
     id: uat_details
