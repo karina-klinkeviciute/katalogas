@@ -1,13 +1,13 @@
-name: "VSSA testavimas"
+name: "VSSA DVMS testavimas"
 description: "VSSA naudotojų priėmimo testavimas"
 title: "<scenarijaus žingsnio nr.> - <Scenarijaus pavadinimas>"
 labels: ["bug", "ui:web"]
-projects: ["karina-klinkeviciute/16"]   # Projects v2: org + projekto numeris iš URL
+projects: ["atviriduomenys/15"]
 body:
   - type: textarea
     id: uat_details
     attributes:
-      label: UAT aptiktas trūkumas
+      label: "\u200B"
       description: Užpildykite šį šabloną
       value: |
         # UAT aptiktas trūkumas
