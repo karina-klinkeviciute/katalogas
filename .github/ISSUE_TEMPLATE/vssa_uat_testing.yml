@@ -1,8 +1,8 @@
 name: "VSSA DVMS testavimas"
 description: "VSSA naudotojų priėmimo testavimas"
 title: "<scenarijaus žingsnio nr.> - <Scenarijaus pavadinimas>"
-labels: ["bug", "ui:web"]
-projects: ["atviriduomenys/15"]
+labels: ["bug"]
+projects: ["karina-klinkeviciute/16"]
 body:
   - type: textarea
     id: uat_details
